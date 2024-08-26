@@ -44,8 +44,8 @@ class ServerWindow(QMainWindow):
         self.pair_code = self.generate_pair_code()
         self.login_attempts = {}  # Store login attempts here
         self.message_buttons = {}
-        self.is_chat_hidden = False  # Initially, chat is not hidden
-
+        self.is_chat_hidden = False  # Initially, chat is Visible
+       
         # Create a text browser for displaying messages
         self.text_browser = QTextBrowser(self)
         self.layout.addWidget(self.text_browser)
@@ -260,9 +260,9 @@ def create_account(email, username, password):
 
 # Create a dictionary to store login attempts for each user
 login_attempts = {}
-# Maximum allowed login attempts before rate limiting kicks in
+# 3 Maximum allowed login attempts before rate limiting kicks in
 max_login_attempts = 3
-# Delay in seconds before allowing another login attempt after reaching the maximum login attempts
+# 4 Delay in seconds before allowing another login attempt after reaching the maximum login attempts
 login_attempt_delay = 4
 
 def login(email, password):
