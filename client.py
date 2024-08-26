@@ -144,7 +144,7 @@ class ClientWindow(QMainWindow):
         
     def toggle_chat_visibility(self):
         if self.is_chat_hidden:
-            pin, ok = QInputDialog.getText(self, "Enter PIN", "Enter the PIN to unhide the chat:")
+            pin, ok = QInputDialog.getText(self, "Enter PIN", "Enter the PIN to see the chat:")
             if ok and pin == self.pair_code:
                 self.text_browser.show()
                 self.hide_unhide_button.setText("Hide Chat")
@@ -224,7 +224,7 @@ class EmojiPicker(QDialog):
 
         emoji_buttons_layout = QHBoxLayout()
 
-        emojis = ["😀", "😍", "😂", "😎", "👍", "❤️", "👋", "👏", "🔥", "🌟", "🎉", "🍕", "🎈"]
+        emojis = ["😀", "😍", "😂", "😎", "👍", "❤️", "👋", "👏", "🔥", "🌟", "🎉", "🍕", "❄️"]
 
         for emoji_text in emojis:
             emoji_button = QPushButton(emoji.emojize(emoji_text))
