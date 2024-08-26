@@ -109,7 +109,7 @@ class ClientWindow(QMainWindow):
                 self.pair_code = self.generate_pair_code()  # Generate a new PIN code
                 if ok1 and ok2 and ok3 and email and username and password:
                     if create_account(email, username, password):
-                        QMessageBox.information(self, "Account Creation", "Account created successfully.")
+                        QMessageBox.information(self, "Account Creation", "Account created successfully.") # account creation message.
                         self.username = username  # Store the username
                     else:
                         QMessageBox.warning(self, "Account Creation", "Email or username already exists. Please use different ones.")
@@ -139,12 +139,12 @@ class ClientWindow(QMainWindow):
                     QMessageBox.warning(self, "Login", "Invalid email or password.")
 
     def generate_pair_code(self):
-        # Generate a random 4-digit pair code
+        # Generate a random 4-digit pair code, also save or remember the pin.
         return str(random.randint(1000, 9999))
         
     def toggle_chat_visibility(self):
         if self.is_chat_hidden:
-            pin, ok = QInputDialog.getText(self, "Enter PIN", "Enter the PIN to see the chat:")
+            pin, ok = QInputDialog.getText(self, "Enter PIN", "Enter the PIN to see the chat:") # use that generated random pin 
             if ok and pin == self.pair_code:
                 self.text_browser.show()
                 self.hide_unhide_button.setText("Hide Chat")
